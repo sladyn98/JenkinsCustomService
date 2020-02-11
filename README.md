@@ -18,4 +18,4 @@
 # To-Do
 1) Create a REST API on top of the war-packager-library.
 2) React Home Page for the entry of various options.
-3) Cloud Hostin if possible. Possible Options (Heroku)
+3) Server Hosting if possible. Possible Options (Heroku)
