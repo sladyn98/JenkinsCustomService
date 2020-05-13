@@ -3,20 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import JSONSchemaForm from "@rjsf/core";
+import Form from "@rjsf/core";
 
 
+const schema = {
+  title: "Test form",
+  type: "object",
+  properties: {
+    name: {
+      type: "string"
+    },
+    age: {
+      type: "number"
+    }
+  }
+};
 
-const Form = JSONSchemaForm.default;
-  const schema = {
-    title: "Test form",
-    type: "string"
-  };
-  
-ReactDOM.render((
-  <Form schema={schema} />
-), document.getElementById("app"));
-
+ReactDOM.render(( <Form schema={schema} />), 
+  document.getElementById('root'));
 
 // ReactDOM.render(
 //   <React.StrictMode>

@@ -2,12 +2,14 @@ import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios"
-// import JSONSchemaForm from 'react-jsonschema-form';
+import Form from "@rjsf/core";
 
 const JsonSchema = () => {
-  
-  
-  return <h1>Hello</h1>
+  const schema = {
+    title: "Test form",
+    type: "string"
+  };
+ return <Form schema={schema} />
 }
 
 function App() {
