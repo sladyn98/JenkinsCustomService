@@ -1,0 +1,53 @@
+ "ssh": {
+                      "type": "object",
+                      "properties": {
+                          "maxNumRetries": {
+                              "description": "",
+                              "type": "integer"
+                          },
+                          "launchTimeoutSeconds": {
+                              "description": "",
+                              "type": "integer"
+                          },
+                          "credentialsId": {
+                              "description": "",
+                              "type": "string"
+                          },
+                          "jvmOptions": {
+                              "description": "",
+                              "type": "string"
+                          },
+                          "suffixStartSlaveCmd": {
+                              "description": "",
+                              "type": "string"
+                          },
+                          "port": {
+                              "description": "Enter the port you want to start jenkins on",
+                              "type": "integer"
+                          },
+                          "javaPath": {
+                              "description": "",
+                              "type": "string"
+                          },
+                          "host": {
+                              "description": "",
+                              "type": "string"
+                          },
+                          "prefixStartSlaveCmd": {
+                              "description": "",
+                              "type": "string"
+                          },
+                          "workDir": {
+                              "description": "",
+                              "type": "string"
+                          },
+                          "retryWaitTime": {
+                              "description": "",
+                              "type": "integer"
+                          },
+                          "tcpNoDelay": {
+                              "description": "",
+                              "type": "boolean"
+                          }
+                      }
+                 }
