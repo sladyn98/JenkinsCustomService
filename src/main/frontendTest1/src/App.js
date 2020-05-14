@@ -5,17 +5,13 @@ import axios from "axios"
 import Form from "@rjsf/core";
 
 const JsonSchema = () => {
-  const schema = {
-    title: "Test form",
-    type: "string"
-  };
- return <Form schema={schema} />
+
+ return <h1>Hello world</h1>
 }
 
 function App() {
   return (
-    <div className="App"><JsonSchema/>
-    </div>
+    <div className="App"><JsonSchema/></div>
   );
 }
 export default App;
