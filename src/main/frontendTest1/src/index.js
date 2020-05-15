@@ -3,24 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Form from "@rjsf/core";
 
 
-// const schema = {
-//   title: "Test form",
-//   type: "object",
-//   properties: {
-//     name: {
-//       type: "string"
-//     },
-//     age: {
-//       type: "number"
-//     }
-//   }
-// };
-
-// ReactDOM.render(( <Form schema={schema} />), 
-//   document.getElementById('root'));
+var fetchedSchema
+fetch('http://localhost:8080/api/json-schema')
+.then((resp) => resp.json())
+.then(function (data) {
+  fetchedSchema = data
+  console.log(fetchedSchema)
+  $('form').jsonForm({
+			schema: fetchedSchema,
+			"onSubmit": function (errors, values) {
+    if (errors) {
+      alert('Check the form for invalid values!');
+      return;
+    }
+    // "values" follows the schema, yeepee!
+    console.log(values);
+  }
+});
+}).catch(function(error) {
+  console.log(error)
+})
 
 ReactDOM.render(
   <React.StrictMode>
