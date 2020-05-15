@@ -17,4 +17,12 @@ public class SchemaService {
     String getJSONSchema() {
         return schemaDataAccessService.getJSONSchema();
     }
+
+    String getJCasCYaml() {
+        return schemaDataAccessService.getJCasCYaml();
+    }
+
+    String getCWPConfig() {
+        return schemaDataAccessService.getCWPConfig();
+    }
 }

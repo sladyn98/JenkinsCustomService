@@ -17,25 +17,6 @@
                                 "title": "launchTimeoutSeconds",
                                 "type": "integer"
                             },
-                            "credentialsId": {
-                                "description": "",
-                                "title": "credentialsId",
-                                "maxLength": "5",
-                                "type": "string"
-                            },
-                            "jvmOptions": {
-                                "description": "",
-                                 "title": "jvmOptions",
-                                "type": "string"
-                            },
-                            "suffixStartSlaveCmd": {
-                                "description": "",
-                                "type": "string"
-                            },
-                            "port": {
-                                "description": "Enter the port you want to start jenkins on",
-                                "type": "integer"
-                            },
                             "tcpNoDelay": {
                                 "description": "",
                                 "type": "boolean"
