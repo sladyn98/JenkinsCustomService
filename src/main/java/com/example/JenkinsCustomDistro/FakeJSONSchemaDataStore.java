@@ -15,6 +15,25 @@ public class FakeJSONSchemaDataStore {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "Hello world";
+        return "";
+    }
+
+
+    public String getJCasCYaml() {
+        try {
+            return new String(Files.readAllBytes(Paths.get("/home/sladyn/Jenkins/POC_CustomService/POC_CustomService/src/main/resources/static/jcasc.yaml")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    public String getCWPConfig() {
+        try {
+            return new String(Files.readAllBytes(Paths.get("/home/sladyn/Jenkins/POC_CustomService/POC_CustomService/src/main/resources/static/packager-config.yml")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }

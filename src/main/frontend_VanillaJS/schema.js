@@ -5,17 +5,27 @@ fetch('http://localhost:8080/api/json-schema')
   fetchedSchema = data
   console.log(fetchedSchema)
   $('form').jsonForm({
-			schema: fetchedSchema,
-			"onSubmit": function (errors, values) {
-    if (errors) {
-      alert('Check the form for invalid values!');
-      return;
-    }
-    // "values" follows the schema, yeepee!
-    console.log(values);
-  }
+			"schema": fetchedSchema,
+      "onSubmitValid": function (values) {
+        console.log(values);
+        fetch('http://localhost:8080/api/json-schema/uploadSchema', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(values),
+            })
+            .then(response => response.json())
+            .then(data => {
+              console.log('Success:', data);})
+            .catch((error) => {
+              console.error('Error:', error);});
+        window.location.href = "config.html"
+      }
 });
 }).catch(function(error) {
   console.log(error)
 })
+
+
   
