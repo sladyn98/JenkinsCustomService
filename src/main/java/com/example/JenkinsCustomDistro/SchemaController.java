@@ -44,13 +44,11 @@ public class SchemaController {
 
     @GetMapping(path = "getYaml")
     public String getJCasCYaml() {
-        System.out.println("We are getting called");
         return schemaService.getJCasCYaml();
     }
 
     @GetMapping(path = "getCWPConfig")
     public String getCWPConfig() {
-        System.out.println("We are getting called");
         return schemaService.getCWPConfig();
     }
 }

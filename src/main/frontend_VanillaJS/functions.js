@@ -39,4 +39,34 @@ function getCWPConfig(editor) {
 }
 
 
+function onStartedDownload() {
+  console.log(`Started downloading`);
+}
+
+function onFailed(error) {
+  console.log(`Download failed: ${error}`);
+}
+
+function saveData(blob, fileName) {
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    var url = window.URL.createObjectURL(blob);
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    window.URL.revokeObjectURL(url);
+}
+
+function downloadJcasC() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", 'http://localhost:8080/apis/download/jcascYaml');
+  xhr.responseType = "blob";
+  xhr.onload = function () {
+      saveData(this.response, 'casc.yml');
+  };
+  xhr.send();
+}
+
+
 
