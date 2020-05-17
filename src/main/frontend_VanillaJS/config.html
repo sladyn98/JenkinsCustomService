@@ -16,24 +16,32 @@
       height: 300px;
   }
 
-  .btn {
+  .jcasc {
     padding: 10px 20px;
     font-size: 20px;
     border-radius: 10px;
-    width:30%; 
-    margin-right: 50px; 
-    margin-top: 20px  
- 
+    width:25%;
+    margin: 20px; 
 }
 
-.btn1 {
-    padding: 10px 20px;
-    font-size: 20px;
-    border-radius: 10px;
-    width:30%; 
-    margin-left: 400px;
-    margin-top: 20px  
-}
+  .war {
+      padding: 10px 20px;
+      font-size: 20px;
+      border-radius: 10px;
+      width:25%; 
+      margin: 20px; 
+
+  }
+
+  .docker {
+      padding: 10px 20px;
+      font-size: 20px;
+      border-radius: 10px;
+      width:25%; 
+      margin: 20px; 
+  }
+
+
 </style>
 </head>
 <body>
@@ -63,8 +71,9 @@
   <div class="text-center">---End of editor---</div>
 
 
-  <button type="button" class="btn btn-raised btn-primary">Download JcasC YAML</button>
-  <button type="button" class="btn1 btn-raised btn-primary">Download WAR File</button>
+  <button type="button" onclick = "downloadJcasC()" class="jcasc btn btn-raised btn-primary">Download JcasC YAML</button>
+  <button type="button"  onclick = "downloadWAR()" class="war btn btn-raised btn-primary">Download WAR File</button>
+  <button type="button"  onclick = "downloadDockerfile()" class="docker btn btn-raised btn-primary">Download DockerFile</button>
 
 
 </div>

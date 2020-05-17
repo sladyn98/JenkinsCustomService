@@ -7,8 +7,6 @@ bundle:
 buildSettings:
   docker:
     base: "jenkins/jenkins:2.138.2"
-    tag: "jenkins-experimental/custom-war-packager-casc-demo"
-    build: true
 war:
   groupId: "org.jenkins-ci.main"
   artifactId: "jenkins-war"
@@ -42,4 +40,4 @@ systemProperties:
 casc:
   - id: "casc"
     source:
-      dir: casc.yml
+      dir: /home/sladyn/Jenkins/POC_CustomService/POC_CustomService/src/main/resources/static/jcasc.yaml
