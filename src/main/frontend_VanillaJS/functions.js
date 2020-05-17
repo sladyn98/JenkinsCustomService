@@ -68,5 +68,26 @@ function downloadJcasC() {
   xhr.send();
 }
 
+function downloadWAR() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", 'http://localhost:8080/apis/download/war');
+  xhr.responseType = "blob";
+  xhr.onload = function () {
+      saveData(this.response, 'jenkins.war');
+  };
+  xhr.send();
+}
+
+function downloadDockerfile() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", 'http://localhost:8080/apis/download/dockerfile');
+  xhr.responseType = "blob";
+  xhr.onload = function () {
+      saveData(this.response, 'Dockerfile');
+  };
+  xhr.send();
+}
+
+
 
 
