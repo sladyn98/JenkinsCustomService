@@ -3,7 +3,11 @@ package com.example.JenkinsCustomDistro;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import net.sf.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +29,7 @@ public class SchemaController {
         this.schemaService = schemaService;
     }
 
+    @CrossOrigin
     @GetMapping
     public String getJSONSchema() {
         return schemaService.getJSONSchema();
@@ -50,5 +55,22 @@ public class SchemaController {
     @GetMapping(path = "getCWPConfig")
     public String getCWPConfig() {
         return schemaService.getCWPConfig();
+    }
+
+    @GetMapping(path = "getPlugins")
+    public List<String> getPlugins() {
+        List<String> pluginStringList = new ArrayList<String>();
+        try {
+            String content = new String(Files.readAllBytes(Paths.get("/home/sladyn/Jenkins/POC_CustomService/POC_CustomService/src/main/resources/static/updateCenter.json")));
+            JSONObject jsonObject = new JSONObject(content);
+            JSONObject jsonPluginList = jsonObject.getJSONObject("plugins");
+            for(int i = 0; i<jsonPluginList.names().length(); i++){
+                System.out.println(jsonPluginList.names().getString(i));
+                pluginStringList.add(jsonPluginList.names().getString(i));
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return pluginStringList;
     }
 }

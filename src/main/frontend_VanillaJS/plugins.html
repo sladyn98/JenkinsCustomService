@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 	<title>Getting started with JSON Form</title>
 	<link rel="stylesheet" type="text/css" href="deps/opt/bootstrap.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 	<style>
 
@@ -42,27 +43,45 @@ body {
 }
 
 
+h1 {
+      font-family: sans-serif;
+      font-size: 64px;
+      color: #CCC;
+      padding: 5px;
+      margin: 5px;
+    }
+    
+    .main-list {
+        margin: 50px;
+    }
+
+    input {
+        margin: 19px;
+    }
+
+    .o-checkbox {
+        margin: 10px;
+    }
 	</style>
 </head>
 <body>
-
+     
 	<div class="topnav">
 		<a class="active" href="http://localhost:5500/frontend_VanillaJS">Home</a>
 		<a href="http://localhost:5500/frontend_VanillaJS/preconfigeditor.html?id=example.yaml">Configure</a>
 		<a href="http://localhost:5500/frontend_VanillaJS/preconfig.html">Pebuilt Configurations</a>
-	  </div>
-	  
-	<h1>Configure Jenkins</h1>
-	<br>
+      </div>
+      
 
-	<div class="newform">
-	<form></form>
+      <div id="plugin-list" class="main-list card">
+    </div>
+	  
 	<div id="res" class="alert"></div>
 	<script type="text/javascript" src="deps/jquery.min.js"></script>
 	<script type="text/javascript" src="deps/underscore.js"></script>
 	<script type="text/javascript" src="deps/opt/jsv.js"></script>
 	<script type="text/javascript" src="lib/jsonform.js"></script>
-	<script type="text/javascript" src="schema.js"></script>
+	<script type="text/javascript" src="plugins.js"></script>
 </div>
 </body>
 </html>

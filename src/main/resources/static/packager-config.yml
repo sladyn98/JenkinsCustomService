@@ -7,6 +7,8 @@ bundle:
 buildSettings:
   docker:
     base: "jenkins/jenkins:2.138.2"
+    tag: "jenkins-experimental/custom-war-packager-casc-demo"
+    build: true
 war:
   groupId: "org.jenkins-ci.main"
   artifactId: "jenkins-war"
@@ -34,10 +36,10 @@ plugins:
     source:
       version: "6.6"
 systemProperties:
-  jenkins.install.runSetupWizard: "false"
+  jenkins.install.runSetupWizard: "true"
   jenkins.model.Jenkins.slaveAgentPort: "50000"
   jenkins.model.Jenkins.slaveAgentPortEnforce: "true"
 casc:
   - id: "casc"
     source:
-      dir: /home/sladyn/Jenkins/POC_CustomService/POC_CustomService/src/main/resources/static/jcasc.yaml
+      dir: casc.yml

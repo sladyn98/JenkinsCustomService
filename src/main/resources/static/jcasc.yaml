@@ -1,5 +1,6 @@
+---
 message: "Hello world"
 ssh:
-  maxNumRetries: 2
-  launchTimeoutSeconds: 3
+  maxNumRetries: 5
+  launchTimeoutSeconds: 4
   tcpNoDelay: true
