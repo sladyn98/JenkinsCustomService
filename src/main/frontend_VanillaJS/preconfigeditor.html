@@ -4,8 +4,11 @@
 	<meta charset="utf-8" />
 	<title>Getting started with JSON Form</title>
 	<link rel="stylesheet" type="text/css" href="deps/opt/bootstrap.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 	<style>
+		
+
 		#jcasc_editor {
 		  /** Setting height is also important, otherwise editor wont showup**/
 		  height: 300px;
@@ -15,12 +18,126 @@
 			/** Setting height is also important, otherwise editor wont showup**/
 			height: 300px;
 		}
-	  
+
+			.jcasc {
+			background-color: black;
+			color: azure;
+			font-family: cursive;
+			font-style: italic;
+			padding: 10px 20px;
+			font-size: 20px;
+			border-radius: 10px;
+			width:25%;
+			margin: 20px; 
+	   		}
+
+		.war {
+			background-color: black;
+			color: azure;
+			font-family: cursive;
+			font-style: italic;
+			padding: 10px 20px;
+			font-size: 20px;
+			border-radius: 10px;
+			width:25%; 
+			margin: 20px; 
+		}
+
+		.docker {
+			background-color: black;
+			color: azure;
+			font-family: cursive;
+			font-style: italic;
+			padding: 10px 20px;
+			font-size: 20px;
+			border-radius: 10px;
+			width:25%; 
+			margin: 20px; 
+		}
+
+		.github {
+			background-color: black;
+			padding: 10px 20px;
+			font-size: 20px;
+			font-family: cursive;
+			border-radius: 10px;
+			font-style: italic;
+			color: azure;
+			width:25%; 
+		}
+
+		.card {
+			visibility: hidden;;
+		}
+
+		.input-group {
+			width: 300px;
+			margin-left: 30%;
+			font-size: large;
+			visibility: hidden;
+		}
+
+		.github-submit {
+			margin-left: 31%;
+			font-size: 20px;
+			width: 25%;
+			margin-top: 10px;
+			visibility: hidden;
+		}
+
+		.form-row {
+			visibility: hidden;
+		}
+
+		body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.newform {
+	margin: 30px;
+}
+
+		
+		
+ 
 	  </style>
 </head>
 
 <body>
 	
+
+	<div class="topnav">
+		<a  href="http://localhost:5500/frontend_VanillaJS">Home</a>
+		<a class="active" href="http://localhost:5500/frontend_VanillaJS/preconfigeditor.html?id=example.yaml">Configure</a>
+		<a  href="http://localhost:5500/frontend_VanillaJS/preconfig.html">Pebuilt Configurations</a>
+	  </div>
+
+
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -45,6 +162,36 @@
 		</div>
 		<div class="text-center">---End of editor---</div>
 	  
+	<div class="container">
+	<button type="button" onclick = "downloadJcasC()" class="jcasc btn btn-raised btn-primary">Download JcasC YAML</button>
+	<button type="button"  onclick = "downloadWAR()" class="war btn btn-raised btn-primary">Download WAR File</button>
+	<button type="button"  onclick = "downloadDockerfile()" class="docker btn btn-raised btn-primary">Download DockerFile</button>
+	<button type="button"  onclick = "addPlugins()" class="docker btn btn-raised btn-primary">Add Plugins to Configuration</button>
+	<button type="button" onclick = "createPR()" class="github btn btn-raised btn-secondary">Create Pull Request</button>
+	</div>
+ <br>
+
+ <form>
+	<div id="github-form" class="form-row">
+	  <div class="col">
+		<input id="prDesc" type="text" style="font-size: 20px;" class="form-control" placeholder="Pull Request Description">
+	  </div>
+	  <div class="col">
+		<input id="prBranch" type="text" style="font-size: 20px;" class="form-control" placeholder="Pull Request Branch Name">
+	  </div>
+	</div>
+  </form>
+  
+  <button id="github-submit" type="button" onclick="sendPR()" class="github-submit btn btn-primary">Submit</button>
+
+	<div id="prLink" class="card text-center" style="margin: 30px;">
+	<div class="card-header" style="font-size: large;">
+		Pull Request Details
+	</div>
+	<div class="card-body" style="font-size: large;">
+		<a id="pullRequestLinkTag" href="#"  class="btn btn-primary" style="font-size: large;">View Pull Request</a>
+	</div>
+	</div>
 
 	<script type="text/javascript" src="deps/jquery.min.js"></script>
 	<script src="deps/opt/src/ace.js" type="text/javascript" charset="utf-8"></script>

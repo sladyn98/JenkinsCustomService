@@ -20,7 +20,7 @@ fetch('http://localhost:8080/api/json-schema')
               console.log('Success:', data);})
             .catch((error) => {
               console.error('Error:', error);});
-        window.location.href = "config.html"
+        window.location.href = "http://localhost:5500/frontend_VanillaJS/preconfigeditor.html?id=example.yaml"
       }
 });
 }).catch(function(error) {

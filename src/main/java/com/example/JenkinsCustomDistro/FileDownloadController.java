@@ -4,7 +4,6 @@ package com.example.JenkinsCustomDistro;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -12,8 +11,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -54,6 +56,14 @@ public class FileDownloadController {
         InputStreamResource resource = new InputStreamResource(new FileInputStream(dockerFile));
         String headerValue = "attachment; filename=Dockerfile";
         return returnResource(returnHeaders(headerValue), dockerFile, resource);
+    }
+
+
+    @PostMapping(path = "/downloadWAR")
+    @ResponseBody
+    public void downloadCustomWAR(@RequestBody String postPayload) {
+            warGeneratorService.saveWARfromString(postPayload);
+            warGeneratorService.generateWAR();
     }
 
     private HttpHeaders returnHeaders(String headerValue) {
